@@ -78,10 +78,11 @@ Testou em outro modelo? Abra uma *issue* ou um *pull request* com o modelo, a ve
 - [Solução de problemas](docs/solucao-de-problemas.md)
 
 ## Créditos
+- Criado e mantido por **[Proteus49](https://github.com/proteus49)**.
 - Parte da lista de telemetria foi conferida com a lista do Fire TV Stick Lite 2020 do projeto [cleanyourtv](https://github.com/Gathin23/cleanyourtv) (MIT).
 - [Projectivy Launcher](https://github.com/spocky/miproja1), de spocky. O app não é redistribuído aqui: o script baixa da página oficial do autor.
 
 ## Aviso
 Use por sua conta e risco. Os scripts só desativam pacotes de forma reversível, mas atualizações da Amazon podem mudar o comportamento. Projeto independente, sem relação com a Amazon.
 
-Licença [MIT](LICENSE).
+Licença [MIT](LICENSE) © 2026 Proteus49.
