@@ -1,0 +1,20 @@
+# NÃO DESATIVAR — quebram menu, teclado, conta, voz ou a própria tela inicial.
+com.amazon.tv.launcher                  # tela inicial da Amazon (também é protegido)
+com.amazon.venezia                      # Appstore
+com.amazon.tigris                       # interface da Appstore
+com.amazon.tv.settings.v2               # Configurações
+com.amazon.tv.ime                       # teclado
+com.amazon.vizzini                      # busca por voz / Alexa no controle
+com.amazon.dcp                          # conta Amazon
+com.amazon.identity.auth.device.authorization
+com.amazon.webview.chromium
+com.amazon.tv.oobe                      # necessário para restaurar de fábrica
+com.amazon.firebat                      # Prime Video
+com.amazon.tv.support
+com.spocky.projengmenu                  # Projectivy (se instalado)
+# ...e qualquer pacote que comece com com.android.
+
+# PROTEGIDOS pela Amazon no Fire OS 7.7 ("Cannot disable a protected package") — não adianta tentar:
+# com.amazon.ftvads.deeplinking, com.amazon.device.metrics, com.amazon.device.crashmanager,
+# com.amazon.device.logmanager, com.amazon.minerva.client.api, com.amazon.diode, com.fireos.usagestats.proxy
+# Para estes, use bloqueio por DNS (ver README).

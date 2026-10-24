@@ -1,0 +1,17 @@
+# OPCIONAL — revise e apague o "#" do começo só das linhas que você quer desativar.
+
+#com.amazon.tahoe                       # Amazon Kids
+#com.amazon.bueller.music               # "Música e mais" (Amazon Music)
+#com.amazon.bueller.photos              # Amazon Fotos
+#com.amazon.firetv.troubleshooting      # app de solução de problemas
+#com.amazon.minitv.android.app          # miniTV (serviço da Índia)
+#com.amazon.cloud9                      # navegador Silk (app "Internet")
+#com.amazon.tv.website_launcher         # abre sites no Silk
+
+# Luna (jogos na nuvem). NÃO funciona em contas do Brasil e de vários países.
+#com.amazon.gamehub
+#com.amazon.spiderpork
+
+# Fire TV Channels / canais gratuitos com anúncio. ATENÇÃO: pode afetar perfis/controle dos pais;
+# teste Prime Video e troca de perfil depois.
+#com.amazon.hedwig
