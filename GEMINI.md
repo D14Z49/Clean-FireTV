@@ -1,3 +1,3 @@
-# Instruções para o assistente
+# Assistant instructions
 
-Leia e siga o arquivo [AGENTS.md](AGENTS.md).
+Read and follow [AGENTS.md](AGENTS.md).

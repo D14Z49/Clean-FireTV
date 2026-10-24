@@ -17,4 +17,4 @@ Para eles, o caminho é bloquear os endereços por DNS no **roteador**.
 - **Teste:** abra `https://adguard.com/test.html` em qualquer aparelho da rede.
 - **Para desfazer:** volte o DNS para "Automático".
 - **Não diminui a velocidade da internet.** O DNS só traduz nomes em endereços; o tráfego dos vídeos não passa por ele.
-- **Limitação:** o banner gigante da tela inicial da Amazon pode continuar aparecendo, porque ele vem do próprio launcher. Para tirá-lo, use o Projectivy (passo 4 do README).
+- **Limitação:** o banner gigante da tela inicial da Amazon pode continuar aparecendo, porque ele vem do próprio launcher. Para tirá-lo, use o Projectivy (veja o README).

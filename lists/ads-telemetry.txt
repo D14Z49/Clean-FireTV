@@ -1,0 +1,39 @@
+# Ads, tracking and telemetry — RECOMMENDED for everyone.
+# Tested: Fire TV Stick 3rd gen (AFTSSS), Fire OS 7.7.1.7. None of these affect Alexa, Netflix, YouTube or Prime Video.
+
+# --- Tracking and advertising ---
+com.amazon.tv.acr                       # automatic content recognition (what you watch)
+com.amazon.hybridadidservice            # advertising ID
+com.amazon.kso.blackbird                # syncs the home screen ads
+com.amazon.sneakpeek                    # auto-playing previews on the home screen
+com.amazon.media.recommendations        # recommendations
+com.amazon.providers.contentsupport     # promotional content provider
+com.amazon.shoptv.client                # Amazon Shopping on TV
+com.amazon.shoptv.firetv.client
+com.amazon.tv.easyupgrade               # "upgrade your Fire TV" promos
+
+# --- Telemetry, metrics and logs ---
+com.amazon.client.metrics.api
+com.amazon.tv.fw.metrics
+com.amazon.wirelessmetrics.service
+com.amazon.neo.minerva
+com.amazon.neo.minerva.logcat
+com.amazon.perfcollection
+com.amazon.perfc
+com.amazon.dp.logger
+com.amazon.ceviche                      # data collection pipelines
+com.amazon.tv.developer.dataservice     # personalization data for third-party apps
+com.amazon.livedeviceservice
+com.amazon.privacypassservice
+com.amazon.wifilocker                   # uploads your Wi-Fi passwords to Amazon
+
+# --- Notices and the "Live" tab (useless on a stick without an antenna) ---
+com.amazon.tv.livetv
+com.amazon.franktvinput
+com.amazon.systemnotices
+com.amazon.uxnotification
+com.amazon.tv.releasenotes              # "what's new" notes
+
+# --- Tutorials ---
+com.amazon.tmm.tutorial
+com.amazon.storm.lightning.tutorial

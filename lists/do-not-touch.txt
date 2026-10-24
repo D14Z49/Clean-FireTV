@@ -1,0 +1,21 @@
+# DO NOT DISABLE — these break the menu, keyboard, account, voice or the home screen itself.
+# scripts/02-disable.sh skips anything listed here.
+com.amazon.tv.launcher                  # Amazon home screen (also protected)
+com.amazon.venezia                      # Appstore
+com.amazon.tigris                       # Appstore UI
+com.amazon.tv.settings.v2               # Settings
+com.amazon.tv.ime                       # keyboard
+com.amazon.vizzini                      # voice search / Alexa on the remote
+com.amazon.dcp                          # Amazon account
+com.amazon.identity.auth.device.authorization
+com.amazon.webview.chromium
+com.amazon.tv.oobe                      # needed for factory reset
+com.amazon.firebat                      # Prime Video
+com.amazon.tv.support
+com.spocky.projengmenu                  # Projectivy (if installed)
+# ...and anything starting with com.android.
+
+# PROTECTED by Amazon on Fire OS 7.7 ("Cannot disable a protected package") — no point trying:
+# com.amazon.ftvads.deeplinking, com.amazon.device.metrics, com.amazon.device.crashmanager,
+# com.amazon.device.logmanager, com.amazon.minerva.client.api, com.amazon.diode, com.fireos.usagestats.proxy
+# For these, use DNS blocking (see docs/dns-blocking.md).

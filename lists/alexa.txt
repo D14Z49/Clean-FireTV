@@ -1,0 +1,19 @@
+# ALEXA extras — use ONLY if you do NOT have Echo devices / Amazon smart home.
+# Voice search on the remote keeps working even with all of these disabled.
+# If you use Echo speakers, alarms, multi-room music or "Alexa, open X on the TV", do NOT apply this list.
+
+com.amazon.tv.alexaalerts               # alarms, timers and reminders on the TV
+com.amazon.tv.alexanotifications
+com.amazon.alexa.externalmediaplayer.fireos   # music played by Alexa
+com.amazon.alexamediaplayer.runtime.ftv
+com.amazon.aiondec                      # skill connections
+com.amazon.audiohome                    # Alexa Home Theater (Echo as TV speakers)
+com.amazon.whad                         # multi-room music
+com.amazon.whasettings
+com.amazon.wha.mediabrowserservice
+com.amazon.aca                          # Alexa hints (~44 MB of RAM)
+com.amazon.naatyam
+com.amazon.whisperjoin.middleware.np    # setup of other Amazon devices
+com.amazon.tv.ffsprovisioneeclient
+com.amazon.ods.kindleconnect            # "show on Fire TV" from Echo / tablet
+com.amazon.tv.mattercohost              # smart home controller (Matter)

@@ -1,66 +1,68 @@
-# Instruções para assistentes de IA (Claude Code, Codex, Gemini CLI e similares)
+# Instructions for AI coding assistants (Claude Code, Codex, Gemini CLI and similar)
 
-O usuário quer limpar o Fire TV Stick dele com este repositório. Conduza o processo de ponta a ponta, **um passo de cada vez**, falando em **português do Brasil**, com linguagem simples.
+The user wants to clean up their Amazon Fire TV Stick with this repository. Guide them end to end, **one step at a time**, in plain language. **Talk to the user in the language they write to you in.** For example, if they write in Portuguese, answer in Portuguese; `README.pt-BR.md` and `docs/pt-BR/` have translated texts you can reuse.
 
-## Regras
+## Rules
 
-1. **Nunca desative nada sem mostrar a lista e receber "sim" do usuário.** Tudo é feito com `pm disable-user` (reversível). Nunca use `pm uninstall` em apps de sistema.
-2. **Nunca toque em pacotes de `listas/nao-mexer.txt`.**
-3. **Pergunte antes de aplicar `listas/alexa.txt`.** Se o usuário tem Echo ou casa inteligente Amazon, não aplique.
-4. **Rode os scripts a partir da raiz do repositório e passe o IP em `FIRE_IP`**, para não travar em perguntas interativas. Exemplo: `FIRE_IP=192.168.0.50 bash scripts/01-diagnostico.sh`.
-5. Se algum pacote der `Cannot disable a protected package`, é normal: a Amazon protege alguns. Siga em frente.
-6. Depois de cada etapa, confirme o resultado. Use `scripts/tela.sh` e olhe o PNG gerado sempre que precisar ver a TV.
-7. Se algo parar de funcionar, reative com `bash scripts/03-reverter.sh NOME_DO_PACOTE`, ou reative tudo com `bash scripts/03-reverter.sh`.
+1. **Never disable anything without showing the list and getting a "yes" from the user.** Everything uses `pm disable-user` (reversible). Never `pm uninstall` system apps.
+2. **Never touch packages in `lists/do-not-touch.txt`.** `scripts/02-disable.sh` also skips them.
+3. **Ask before applying `lists/alexa.txt`.** If the user has Echo devices or an Amazon smart home, do not apply it.
+4. **Run the scripts from the repository root and pass the IP in `FIRE_IP`**, so nothing blocks on interactive prompts. Example: `FIRE_IP=192.168.0.50 bash scripts/01-diagnose.sh`.
+5. `Cannot disable a protected package` is expected for some packages; Amazon protects them. Move on.
+6. After each step, verify the result. Use `scripts/screenshot.sh` and look at the PNG whenever you need to see the TV.
+7. If something stops working, re-enable it with `bash scripts/03-restore.sh PACKAGE_NAME`, or re-enable everything with `bash scripts/03-restore.sh`.
 
-## Roteiro
+## Walkthrough
 
-### 0. Pré-requisitos
-- **Computador:** confira se o `adb` existe (`command -v adb`). Se não existir, instale:
+### 0. Prerequisites
+- **Computer:** check `adb` (`command -v adb`). If missing, install it:
   - macOS: `brew install --cask android-platform-tools`
   - Linux: `sudo apt install adb`
-  - Windows: Platform-Tools do Android, ou WSL
-- **Fire Stick:** guie o usuário pela TV:
-  1. Configurações > Meu Fire TV > Sobre: anotar **modelo e versão do Fire OS**.
-  2. Clicar 7 vezes no nome do aparelho para liberar as **Opções do desenvolvedor**.
-  3. Opções do desenvolvedor: ligar **Depuração ADB** e **Apps de fontes desconhecidas**.
-  4. Sobre > Rede: anotar o **IP**.
-- Se o sistema for **Vega OS** em vez de Fire OS, pare: este método não funciona.
+  - Windows: Android Platform-Tools, or WSL
+- **Fire Stick:** walk the user through it on the TV:
+  1. Settings > My Fire TV > About: note the **model and Fire OS version**.
+  2. Click the device name 7 times to unlock **Developer Options**.
+  3. Developer Options: turn on **ADB Debugging** and **Apps from Unknown Sources**.
+  4. About > Network: note the **IP address**.
+- If the device runs **Vega OS** instead of Fire OS, stop: this method does not work there.
 
-### 1. Diagnóstico
-1. Rode `FIRE_IP=<ip> bash scripts/01-diagnostico.sh`. O usuário precisa aceitar **"Permitir depuração?"** na TV, marcando "Sempre permitir".
-2. Leia o `relatorio.txt` e cruze com as listas. Mostre ao usuário só os pacotes que **existem** no aparelho dele.
-3. Aponte apps instalados pelo usuário que sejam suspeitos (IPTV de fora da loja, duplicados) e pergunte se ele usa.
+### 1. Diagnose
+1. Run `FIRE_IP=<ip> bash scripts/01-diagnose.sh`. The user must accept **"Allow USB debugging?"** on the TV and tick "Always allow".
+2. Read `report.txt` and cross-check it with the lists. Show the user only the packages that **exist** on their device.
+3. Point out suspicious user-installed apps (sideloaded IPTV, duplicates) and ask whether they use them.
 
-### 2. Perguntas ao usuário, antes de desativar
-- Usa **Alexa, Echo ou casa inteligente Amazon**? Se não, ofereça `listas/alexa.txt`.
-- Usa **Amazon Kids, Amazon Music, Amazon Fotos, o navegador Silk ("Internet")**?
-- Usa **Luna**? Avise que não funciona em contas do Brasil.
-- Quer **trocar a tela inicial** pelo Projectivy? Explique o trade-off do passo 4.
+### 2. Ask the user, before disabling anything
+- Do they use **Alexa, Echo devices or an Amazon smart home**? If not, offer `lists/alexa.txt`.
+- Do they use **Amazon Kids, Amazon Music, Amazon Photos, or the Silk browser ("Internet")**?
+- Do they use **Luna**? Warn that it only works in supported countries.
+- Do they want to **replace the home screen** with Projectivy? Explain the trade-off in step 4.
 
-### 3. Desativar
-- Recomendado: `FIRE_IP=<ip> bash scripts/02-desativar.sh listas/anuncios-telemetria.txt`
-- Opcionais: copie as linhas escolhidas de `listas/opcional.txt` para um arquivo `listas/minhas.txt` (sem o `#`) e rode o mesmo script com ele.
-- Depois peça para o usuário **reiniciar** (segurar Selecionar + Play/Pause por 5 s) e testar Netflix, YouTube, Prime Video, busca por voz e Configurações.
+### 3. Disable
+- Recommended: `FIRE_IP=<ip> bash scripts/02-disable.sh lists/ads-telemetry.txt`
+- Optional: copy the chosen lines from `lists/optional.txt` into `lists/mine.txt` (without the `#`) and run the same script with it.
+- Then ask the user to **restart** (hold Select + Play/Pause for 5 s) and test Netflix, YouTube, Prime Video, voice search and Settings.
 
-### 4. Tela inicial sem anúncios (opcional)
-- Rode `FIRE_IP=<ip> bash scripts/04-projectivy.sh` e guie o usuário na TV:
-  1. Abrir o Projectivy e concluir o assistente.
-  2. Configurações > Geral > ligar **"Sobrepor o launcher atual"**.
-  3. Opcional: desligar os dois "relatórios anônimos".
-- **Avise o usuário de três coisas:**
-  - O botão Home mostra a tela da Amazon por ~5 s antes do Projectivy assumir. É limitação do Fire OS (o launcher da Amazon é protegido); não há como eliminar.
-  - Para chegar nas **Configurações do Fire TV**, segure o botão Home por 3 s.
-  - Para voltar à tela da Amazon, basta desligar "Sobrepor o launcher atual".
+### 4. Ad-free home screen (optional)
+- Run `FIRE_IP=<ip> bash scripts/04-projectivy.sh` and guide the user on the TV:
+  1. Open Projectivy and finish the wizard.
+  2. Settings > General > turn on **"Override current launcher"**.
+  3. Optional: turn off the two "anonymous reports" toggles.
+- **Tell the user three things:**
+  - Pressing Home shows the Amazon screen for ~5 s before Projectivy takes over. This is a Fire OS limitation (Amazon's launcher is protected) and cannot be removed.
+  - To reach **Fire TV Settings**, hold the Home button for 3 s.
+  - To get the Amazon home screen back, just turn "Override current launcher" off.
 
-### 5. Otimizar
-- `FIRE_IP=<ip> bash scripts/05-otimizar.sh` coloca as animações em 0.5x e limpa o cache.
-- Pelo menu (não dá por ADB): Configurações > Preferências > Configurações de privacidade, desligar as três opções. Em Preferências > Conteúdo em destaque, desligar a reprodução automática de vídeo e áudio.
-- Sugira o bloqueio por DNS no roteador. Veja `docs/dns.md`.
+### 5. Optimize
+- `FIRE_IP=<ip> bash scripts/05-optimize.sh` sets animations to 0.5x and clears caches.
+- From the menu (not possible over ADB):
+  - Settings > Preferences > Privacy Settings: turn off all three toggles.
+  - Preferences > Featured Content: turn off video and audio autoplay.
+- Suggest DNS blocking on the router. See `docs/dns-blocking.md`.
 
-### 6. Encerrar
-- Rode `bash scripts/desligar-adb.sh`, para fechar a porta 5555 na rede.
-- Resuma o que foi desativado (`desativados.log`) e como reverter.
-- Lembre o usuário: atualizações da Amazon podem reativar pacotes. Basta rodar o passo 3 de novo.
+### 6. Wrap up
+- Run `bash scripts/disable-adb.sh` to close port 5555 on the network.
+- Summarize what was disabled (`disabled.log`) and how to undo it.
+- Remind the user that Amazon updates may re-enable packages. Re-running step 3 fixes it.
 
-## Problemas comuns
-Veja `docs/solucao-de-problemas.md`.
+## Common problems
+See `docs/troubleshooting.md`.
