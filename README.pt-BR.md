@@ -17,7 +17,7 @@ Tudo é feito por ADB pela rede Wi-Fi, com `pm disable-user`. **Nenhum app de si
 
 Se você usa **Claude Code**, Codex, Gemini CLI ou outro assistente com acesso ao terminal, basta pedir:
 
-> Clone https://github.com/proteus49/Clean-FireTV e siga o AGENTS.md para limpar meu Fire TV Stick.
+> Clone https://github.com/D14Z49/Clean-FireTV e siga o AGENTS.md para limpar meu Fire TV Stick.
 
 O assistente lê o [`AGENTS.md`](AGENTS.md) e conduz tudo passo a passo, em português. **Antes de desativar qualquer coisa, ele pergunta o que você usa.**
 
@@ -37,7 +37,7 @@ O assistente lê o [`AGENTS.md`](AGENTS.md) e conduz tudo passo a passo, em port
 
 ### 3. Rode os scripts (computador na mesma rede Wi-Fi)
 ```bash
-git clone https://github.com/proteus49/Clean-FireTV && cd Clean-FireTV
+git clone https://github.com/D14Z49/Clean-FireTV && cd Clean-FireTV
 
 bash scripts/01-diagnose.sh                         # só leitura; pede o IP e salva report.txt
 bash scripts/02-disable.sh lists/ads-telemetry.txt  # recomendado
@@ -80,11 +80,11 @@ Testou em outro modelo? Abra uma *issue* ou um *pull request* com o modelo, a ve
 - [Solução de problemas](docs/pt-BR/solucao-de-problemas.md)
 
 ## Créditos
-- Criado e mantido por **[Proteus49](https://github.com/proteus49)**.
+- Criado e mantido por **[D14Z49](https://github.com/D14Z49)**.
 - Parte da lista de telemetria foi conferida com a lista do Fire TV Stick Lite 2020 do projeto [cleanyourtv](https://github.com/Gathin23/cleanyourtv) (MIT).
 - [Projectivy Launcher](https://github.com/spocky/miproja1), de spocky. O app não é redistribuído aqui: o script baixa da página oficial do autor.
 
 ## Aviso
 Use por sua conta e risco. Os scripts só desativam pacotes de forma reversível, mas atualizações da Amazon podem mudar o comportamento. Projeto independente, sem relação com a Amazon.
 
-Licença [MIT](LICENSE) © 2026 Proteus49.
+Licença [MIT](LICENSE) © 2026 D14Z49.
