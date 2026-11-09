@@ -81,6 +81,9 @@ bash scripts/05-optimize.sh
 - Nunca desative o `launcherx` sozinho: sem outro launcher instalado a TV fica com tela preta.
 - Não desative `com.tcl.suspension`: ele faz o botão de Entradas (Inputs) do controle funcionar.
 
+### Bloqueio de anúncios por DNS privado
+`bash scripts/08-private-dns.sh on` bloqueia anúncios e rastreadores no aparelho inteiro (AdGuard DNS); `off` volta ao normal. **Cuidado em redes que você não controla:** redes que bloqueiam DNS criptografado deixam o aparelho sem internet.
+
 ## Desfazer
 ```bash
 bash scripts/03-restore.sh                       # reativa tudo que foi desativado
@@ -91,7 +94,7 @@ bash scripts/03-restore.sh com.amazon.exemplo    # reativa um pacote
 | Aparelho | Sistema | Resultado |
 |---|---|---|
 | Fire TV Stick 3ª geração (AFTSSS) | 7.7.1.7 | Lista recomendada aplicada; Alexa, Netflix, YouTube e Prime Video funcionando após reiniciar |
-| TCL 43P755 (Google TV) | Android 12 | Lista TCL + apps Google opcionais desativados; Projectivy como tela inicial de verdade; Configurações, YouTube e Home funcionando após reiniciar |
+| TCL 43P755 (Google TV) | Android 12 | Lista TCL + apps Google opcionais desativados; Projectivy como tela inicial de verdade; Configurações, YouTube e Home funcionando após reiniciar. |
 
 Testou em outro modelo? Abra uma *issue* ou um *pull request* com o modelo, a versão do Fire OS e quais pacotes funcionaram ou deram erro.
 

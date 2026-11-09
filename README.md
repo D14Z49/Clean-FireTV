@@ -81,6 +81,9 @@ bash scripts/05-optimize.sh
 - Never disable `launcherx` on its own: without another launcher installed you get a black screen.
 - Do not disable `com.tcl.suspension`: it breaks the remote's Inputs button.
 
+### Private DNS ad blocking
+`bash scripts/08-private-dns.sh on` blocks ads and trackers on the whole device (AdGuard DNS); `off` goes back to normal. **Careful on networks you do not control:** networks that block DNS-over-TLS leave the device with no internet.
+
 ## Undo
 ```bash
 bash scripts/03-restore.sh                       # re-enable everything
@@ -91,7 +94,7 @@ bash scripts/03-restore.sh com.amazon.example    # re-enable one package
 | Device | System | Result |
 |---|---|---|
 | Fire TV Stick 3rd gen (AFTSSS) | 7.7.1.7 | Recommended list applied; Alexa, Netflix, YouTube and Prime Video working after restart |
-| TCL 43P755 (Google TV) | Android 12 | TCL list + optional Google apps disabled; Projectivy as the real home screen; Settings, YouTube and Home working after restart |
+| TCL 43P755 (Google TV) | Android 12 | TCL list + optional Google apps disabled; Projectivy as the real home screen; Settings, YouTube and Home working after restart. |
 
 Tested another model? Open an *issue* or a *pull request* with the model, Fire OS version, and which packages worked or failed.
 

@@ -6,6 +6,11 @@
 #com.google.android.youtube.tvmusic     # YouTube Music
 #com.google.android.marvin.talkback     # TalkBack screen reader (keep if anyone needs it)
 
+# --- Lighter system (safe once the Google TV launcher is replaced) ---
+#com.google.android.videos              # "Google TV" app (~30 MB RAM, useless without the Google TV home)
+#com.google.android.apps.tv.dreamx      # Google ambient screensaver (set the basic one: see README)
+#com.tcl.miracast                       # Miracast screen mirroring (AirPlay and Chromecast keep working)
+
 # --- TCL extras ---
 #com.tcl.gamebar                        # TCL game bar overlay
 #com.tcl.smartalexa                     # Alexa integration (keep if you use Echo devices)
