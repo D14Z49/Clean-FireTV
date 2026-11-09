@@ -1,11 +1,12 @@
 #!/bin/bash
-# Shared helpers. The Fire Stick IP comes from FIRE_IP, from the .fire_ip file (saved on first run),
+# Shared helpers. The TV IP comes from FIRE_IP (or TV_IP), from the .fire_ip file (saved on first run),
 # or is asked interactively. Find it at: Settings > My Fire TV > About > Network.
+[ -z "$FIRE_IP" ] && [ -n "$TV_IP" ] && FIRE_IP="$TV_IP"
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 
 [ -z "$FIRE_IP" ] && [ -f "$ROOT/.fire_ip" ] && FIRE_IP=$(cat "$ROOT/.fire_ip")
 if [ -z "$FIRE_IP" ]; then
-  read -p "Fire Stick IP address (e.g. 192.168.0.50): " FIRE_IP
+  read -p "TV / Fire Stick IP address (e.g. 192.168.0.50): " FIRE_IP
   [ -z "$FIRE_IP" ] && exit 1
 fi
 echo "$FIRE_IP" > "$ROOT/.fire_ip"

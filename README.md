@@ -2,7 +2,7 @@
 
 **English** · [Português (Brasil)](README.pt-BR.md)
 
-**Your Fire TV Stick without ads, without tracking, and faster.** No root, nothing deleted, and a one-command undo.
+**Your Fire TV Stick (and Google TV sets like TCL) without ads, without tracking, and faster.** No root, nothing deleted, and a one-command undo.
 
 - Disables Amazon's **tracking, advertising and telemetry**: content recognition, the advertising ID, the service that uploads your Wi-Fi passwords, and more.
 - Optionally replaces the banner-filled home screen with a **clean one** ([Projectivy Launcher](https://github.com/spocky/miproja1)).
@@ -62,6 +62,25 @@ Fire OS **blocks** replacing the launcher. Projectivy intercepts the Home button
 - **Fire TV Settings** are reached by **holding Home for 3 s**;
 - to get Amazon's home screen back, turn off **"Override current launcher"** in Projectivy's settings.
 
+## Google TV (TCL and others)
+
+The same approach works on **Google TV** sets (tested on a TCL 43P755). Turn on developer mode with **Settings > System > About > click "Android TV OS build" 7 times**, then **Settings > System > Developer options > USB debugging** (on TCL this also opens ADB over the network). The IP is under **Settings > Network & Internet > your network**.
+
+```bash
+export TV_IP=192.168.0.60                                   # your TV's IP
+bash scripts/01-diagnose.sh
+bash scripts/02-disable.sh lists/google-tv/tcl-ads-telemetry.txt   # recommended on TCL
+bash scripts/02-disable.sh lists/google-tv/optional.txt            # after removing the # you want
+bash scripts/06-google-tv-launcher.sh                       # clean home screen (Projectivy)
+bash scripts/05-optimize.sh
+```
+
+**Unlike Fire OS, Google TV lets the launcher be replaced for real.** `06-google-tv-launcher.sh` installs Projectivy *first*, then disables the Google TV launcher (`launcherx`) and the setup wizard that would otherwise grab the Home button. Result: Home opens Projectivy instantly, with no ads screen, and the heavy Google TV home no longer runs in the background. Settings open from Projectivy's gear icon.
+
+- Undo just the launcher: `bash scripts/06-google-tv-launcher.sh restore`
+- Never disable `launcherx` on its own: without another launcher installed you get a black screen.
+- Do not disable `com.tcl.suspension`: it breaks the remote's Inputs button.
+
 ## Undo
 ```bash
 bash scripts/03-restore.sh                       # re-enable everything
@@ -69,11 +88,17 @@ bash scripts/03-restore.sh com.amazon.example    # re-enable one package
 ```
 
 ## Tested on
-| Device | Fire OS | Result |
+| Device | System | Result |
 |---|---|---|
 | Fire TV Stick 3rd gen (AFTSSS) | 7.7.1.7 | Recommended list applied; Alexa, Netflix, YouTube and Prime Video working after restart |
+| TCL 43P755 (Google TV) | Android 12 | TCL list + optional Google apps disabled; Projectivy as the real home screen; Settings, YouTube and Home working after restart |
 
 Tested another model? Open an *issue* or a *pull request* with the model, Fire OS version, and which packages worked or failed.
+
+## Similar projects
+- [android-tv-debloat-toolkit](https://github.com/seun-novodev/android-tv-debloat-toolkit): Windows GUI toolkit for TCL/Google TV debloating, inspired by an earlier TCL script by chrissy-dev.
+- [cleanyourtv](https://github.com/Gathin23/cleanyourtv): per-model debloat lists with a restore script.
+- Open-source launchers, if you prefer them to Projectivy (which is free but closed source): [FLauncher fork by osrosal](https://github.com/osrosal/flauncher), [LTvLauncher](https://github.com/LeanBitLab/FLauncherL), and [TV Launcher on F-Droid](https://f-droid.org/packages/com.tvlauncher/).
 
 ## More
 - [Network-wide DNS blocking](docs/dns-blocking.md)

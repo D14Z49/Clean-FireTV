@@ -64,5 +64,12 @@ The user wants to clean up their Amazon Fire TV Stick with this repository. Guid
 - Summarize what was disabled (`disabled.log`) and how to undo it.
 - Remind the user that Amazon updates may re-enable packages. Re-running step 3 fixes it.
 
+## Google TV devices (TCL and others)
+If `01-diagnose.sh` shows `com.google.android.apps.tv.launcherx`, the device is a **Google TV**, not a Fire TV. Then:
+- Developer mode: Settings > System > About > click "Android TV OS build" 7 times; Developer options > **USB debugging**. Use `TV_IP=<ip>`.
+- Use `lists/google-tv/tcl-ads-telemetry.txt` (TCL) and offer `lists/google-tv/optional.txt` after asking what the user uses. Skip the Fire TV lists.
+- For the clean home screen use `scripts/06-google-tv-launcher.sh` (NOT 04-projectivy.sh). It installs Projectivy before disabling the Google TV launcher. Never disable `launcherx` by itself (black screen). Undo: `bash scripts/06-google-tv-launcher.sh restore`.
+- After it runs, the user finishes Projectivy's wizard on the TV. Reboot and confirm Home opens Projectivy and Settings still open.
+
 ## Common problems
 See `docs/troubleshooting.md`.

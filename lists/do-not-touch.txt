@@ -19,3 +19,23 @@ com.spocky.projengmenu                  # Projectivy (if installed)
 # com.amazon.ftvads.deeplinking, com.amazon.device.metrics, com.amazon.device.crashmanager,
 # com.amazon.device.logmanager, com.amazon.minerva.client.api, com.amazon.diode, com.fireos.usagestats.proxy
 # For these, use DNS blocking (see docs/dns-blocking.md).
+
+# --- TCL Google TV ---
+com.tcl.tv                              # TV core
+com.tcl.tvinput                         # HDMI/antenna inputs
+com.tcl.suspension                      # "Inputs" button on the remote (reported broken when disabled)
+com.tcl.systemserver
+com.tcl.dashboard                       # quick settings panel
+com.tcl.initsetup
+com.tcl.inputmethod.international       # keyboard
+com.tcl.useragreement
+com.tcl.partnercustomizer
+com.google.android.katniss              # voice search / Assistant
+com.google.android.gms
+com.google.android.gsf
+com.google.android.inputmethod.latin    # Gboard
+com.google.android.tv.remote.service    # phone remote
+# Do not disable com.google.android.apps.tv.launcherx with 02-disable.sh: use scripts/06-google-tv-launcher.sh,
+# which installs the new launcher FIRST (disabling the Google TV launcher alone leaves a black screen).
+com.google.android.apps.tv.launcherx
+com.google.android.tungsten.setupwraith

@@ -1,0 +1,13 @@
+# TCL Google TV — OPTIONAL. Remove the # only on what you do not use, then:
+#   bash scripts/02-disable.sh lists/google-tv/optional.txt
+
+# --- Google apps few people use ---
+#com.google.android.play.games          # Play Games
+#com.google.android.youtube.tvmusic     # YouTube Music
+#com.google.android.marvin.talkback     # TalkBack screen reader (keep if anyone needs it)
+
+# --- TCL extras ---
+#com.tcl.gamebar                        # TCL game bar overlay
+#com.tcl.smartalexa                     # Alexa integration (keep if you use Echo devices)
+#com.tcl.magiconnectfree                # T-Cast / phone remote app link
+#com.amazon.amazonvideo.livingroom      # Prime Video (pre-installed)
